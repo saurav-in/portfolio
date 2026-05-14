@@ -1,17 +1,18 @@
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+      navToggleIcon = document.getElementById('nav-toggle-icon')
+
+const setMenuState = (isOpen) => {
+  navMenu.classList.toggle('show-menu', isOpen)
+  navToggleIcon.className = isOpen ? 'ri-close-line' : 'ri-menu-4-line'
+  navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu')
+  navToggle.setAttribute('aria-expanded', isOpen)
+}
 
 if (navToggle) {
   navToggle.addEventListener('click', () => {
-    navMenu.classList.add('show-menu')
-  })
-}
-
-if (navClose) {
-  navClose.addEventListener('click', () => {
-    navMenu.classList.remove('show-menu')
+    setMenuState(!navMenu.classList.contains('show-menu'))
   })
 }
 
@@ -19,7 +20,7 @@ if (navClose) {
 const navLink = document.querySelectorAll('.nav__link')
 
 const linkAction = () => {
-  navMenu.classList.remove('show-menu')
+  setMenuState(false)
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
