@@ -72,14 +72,8 @@ I have worked with multiple clients and teams, building scalable solutions and i
 
 ## 📫 Contact
 
-* 📧 Email: (your email here)
-* 💼 LinkedIn: (your LinkedIn link)
+* 📧 Email: saurav1729k@gmail.com
+* 💼 LinkedIn: https://www.linkedin.com/in/karmakarsaurav/
 * 🐙 GitHub: https://github.com/saurav-in
-
----
-
-## ⭐ If you like this project
-
-Give it a star ⭐ — it motivates me to build more!
 
 ---
