@@ -1,16 +1,85 @@
-# Responsive Portfolio Website Patrick
-## [Watch it on youtube](https://youtu.be/Y4-xMb-eHOQ)
-### Responsive Portfolio Website Patrick
+# 👨‍💻 Saurav Karmakar – Portfolio
 
-- Responsive Portfolio Website Design Using HTML CSS & JavaScript
-- Contains animations when scrolling.
-- Smooth scrolling in each section.
-- Contains a beautiful dark theme.
-- The color of the project can be customized.
-- Sending emails in the contact section.
-- Developed first with the Mobile First methodology, then for desktop.
-- Compatible with all mobile devices and with a beautiful and pleasant user interface.
+Welcome to my personal portfolio website 🚀
+This site showcases my work, skills, and experience as a **Java Backend Developer**.
 
-💙 Join the channel to see more videos like this. [Bedimcode](https://www.youtube.com/@Bedimcode)
+---
 
-![preview img](/preview.png)
+## 🌐 Live Website
+
+👉 https://saurav-in.github.io/portfolio/
+
+---
+
+## 🧠 About Me
+
+I am a Java Developer with 3+ years of experience working on backend systems, APIs, and enterprise applications.
+
+I have worked with multiple clients and teams, building scalable solutions and improving system performance.
+
+---
+
+## ⚙️ Tech Stack
+
+* **Backend:** Java, Spring Boot
+* **APIs:** REST, Swagger
+* **Messaging:** Kafka
+* **Database:** SQL, PostgreSQL
+* **Tools:** Git, Postman, IntelliJ, Kubernetes
+
+---
+
+## 🚀 Features
+
+* Responsive portfolio design
+* Dynamic GitHub repositories section (using GitHub API)
+* Clean and modern UI
+* Deployed using GitHub Pages
+
+---
+
+## 📂 Projects Highlight
+
+### 🔹 GitHub Repo Fetcher
+
+* Fetches repositories using GitHub API
+* Displays them dynamically in UI
+* Built using JavaScript (fetch API)
+
+### 🔹 API Development & Testing
+
+* Designed and tested REST APIs
+* Used Swagger and Postman
+* Worked with WireMock for API simulation
+
+---
+
+## 💼 Experience
+
+### Accenture (2025 – Present)
+
+* Developing and testing APIs
+* Working with Kafka and Kubernetes
+* Documenting APIs using Swagger
+
+### DXC Technology (2021 – 2024)
+
+* Worked on multiple enterprise applications
+* Debugging, SQL scripting, backend development
+* Collaborated with global teams
+
+---
+
+## 📫 Contact
+
+* 📧 Email: (your email here)
+* 💼 LinkedIn: (your LinkedIn link)
+* 🐙 GitHub: https://github.com/saurav-in
+
+---
+
+## ⭐ If you like this project
+
+Give it a star ⭐ — it motivates me to build more!
+
+---
