@@ -23,6 +23,35 @@ const linkAction = () => {
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
+/*=============== THEME TOGGLE ===============*/
+const themeToggle = document.getElementById('theme-toggle'),
+      lightTheme = 'light-theme',
+      selectedTheme = localStorage.getItem('selected-theme')
+
+const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'light' : 'dark'
+
+const updateThemeLabel = () => {
+  if (themeToggle) {
+    const nextTheme = getCurrentTheme() === 'dark' ? 'light' : 'dark'
+    themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`)
+    themeToggle.setAttribute('aria-pressed', getCurrentTheme() === 'light')
+  }
+}
+
+if (selectedTheme === 'light') {
+  document.body.classList.add(lightTheme)
+}
+
+updateThemeLabel()
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle(lightTheme)
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    updateThemeLabel()
+  })
+}
+
 /*=============== ADD BLUR TO HEADER ===============*/
 const blurHeader = () => {
   const header = document.getElementById('header')

@@ -14,6 +14,9 @@
   --container-color: hsl(228, 15%, 15%);
   --surface-color: hsl(228, 14%, 18%);
   --border-color: hsl(228, 12%, 28%);
+  --nav-menu-color: hsla(228, 15%, 15%, .96);
+  --header-blur-color: hsla(228, 15%, 15%, .62);
+  --shadow-color: hsla(228, 15%, 8%, .35);
 
   --body-font: "Poppins", sans-serif;
   --biggest-font-size: 2rem;
@@ -31,6 +34,20 @@
 
   --z-tooltip: 10;
   --z-fixed: 100;
+}
+
+body.light-theme {
+  --first-color: hsl(var(--hue), 88%, 36%);
+  --first-color-alt: hsl(var(--hue), 78%, 30%);
+  --title-color: hsl(228, 14%, 15%);
+  --text-color: hsl(228, 10%, 35%);
+  --body-color: hsl(210, 28%, 96%);
+  --container-color: hsl(0, 0%, 100%);
+  --surface-color: hsl(210, 22%, 98%);
+  --border-color: hsl(228, 15%, 86%);
+  --nav-menu-color: hsla(0, 0%, 100%, .96);
+  --header-blur-color: hsla(0, 0%, 100%, .72);
+  --shadow-color: hsla(228, 16%, 30%, .16);
 }
 
 @media screen and (min-width: 1152px) {
@@ -68,6 +85,7 @@ body {
 body {
   background-color: var(--body-color);
   color: var(--text-color);
+  transition: background-color .4s, color .4s;
 }
 
 input,
@@ -166,6 +184,52 @@ button {
   color: var(--first-color);
 }
 
+.nav__actions {
+  position: relative;
+  z-index: calc(var(--z-fixed) + 1);
+  display: flex;
+  align-items: center;
+  column-gap: .75rem;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 3.25rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: .4rem;
+  border-radius: 999px;
+  background-color: var(--surface-color);
+  color: var(--title-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 22px var(--shadow-color);
+  transition: background-color .4s, border-color .4s, box-shadow .4s;
+}
+
+.theme-toggle::after {
+  content: "";
+  position: absolute;
+  left: .22rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: var(--first-color);
+  box-shadow: 0 4px 12px hsla(var(--hue), 100%, 32%, .32);
+  transition: transform .35s;
+}
+
+.theme-toggle i {
+  position: relative;
+  z-index: 1;
+  font-size: .95rem;
+}
+
+.light-theme .theme-toggle::after {
+  transform: translateX(1.45rem);
+}
+
 .nav__toggle,
 .nav__close {
   display: flex;
@@ -179,7 +243,7 @@ button {
     position: fixed;
     top: 0;
     right: -100%;
-    background-color: hsla(228, 15%, 15%, .96);
+    background-color: var(--nav-menu-color);
     width: 75%;
     height: 100%;
     padding: 4.5rem 0 0 3rem;
@@ -224,7 +288,7 @@ button {
   position: absolute;
   width: 1000%;
   height: 100%;
-  background-color: hsla(228, 15%, 15%, .62);
+  background-color: var(--header-blur-color);
   backdrop-filter: blur(24px);
   top: 0;
   left: 0;
@@ -718,7 +782,7 @@ button {
   color: var(--title-color);
   font-size: 1.25rem;
   border-radius: .25rem;
-  box-shadow: 0 4px 12px hsla(228, 15%, 8%, .35);
+  box-shadow: 0 4px 12px var(--shadow-color);
   z-index: var(--z-tooltip);
   transition: bottom .4s, transform .4s;
 }
@@ -732,6 +796,42 @@ button {
 }
 
 /*=============== BREAKPOINTS ===============*/
+@media screen and (max-width: 575px) {
+  .nav__actions {
+    column-gap: .5rem;
+  }
+
+  .theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    padding: 0;
+    border-radius: .75rem;
+    background-color: var(--container-color);
+    border-color: var(--first-color);
+  }
+
+  .theme-toggle::after {
+    display: none;
+  }
+
+  .theme-toggle i {
+    font-size: 1.25rem;
+  }
+
+  .theme-toggle__moon {
+    display: none;
+  }
+
+  .light-theme .theme-toggle__sun {
+    display: none;
+  }
+
+  .light-theme .theme-toggle__moon {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 340px) {
   .container {
     margin-inline: 1rem;
@@ -849,6 +949,10 @@ button {
     display: none;
   }
 
+  .nav__actions {
+    order: 1;
+  }
+
   .nav__list {
     flex-direction: row;
     column-gap: 3rem;
@@ -862,6 +966,7 @@ button {
     backdrop-filter: blur(25px);
   }
 }
+
 
 @media screen and (min-width: 1152px) {
   .container {
