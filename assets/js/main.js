@@ -53,6 +53,53 @@ if (themeToggle) {
   })
 }
 
+/*=============== VISITOR COUNT ===============*/
+const visitorCounter = document.getElementById('visitor-counter'),
+      visitorCount = document.getElementById('visitor-count'),
+      visitorNamespace = 'saurav-karmakar-portfolio',
+      visitorName = 'site-visits',
+      visitorSessionKey = `${visitorNamespace}-${visitorName}-counted`,
+      visitorApiBase = `https://api.counterapi.dev/v1/${visitorNamespace}/${visitorName}`
+
+const formatVisitorCount = (count) => {
+  return new Intl.NumberFormat('en-IN').format(count)
+}
+
+const readCounterValue = (data) => {
+  return data?.count ?? data?.value ?? data?.data?.count ?? data?.data?.value
+}
+
+const loadVisitorCount = async () => {
+  if (!visitorCounter || !visitorCount) return
+
+  try {
+    const endpoint = sessionStorage.getItem(visitorSessionKey) ? visitorApiBase : `${visitorApiBase}/up`
+    const response = await fetch(endpoint, { cache: 'no-store' })
+
+    if (!response.ok) {
+      throw new Error('Visitor counter request failed')
+    }
+
+    const data = await response.json()
+    const count = Number(readCounterValue(data))
+
+    if (!Number.isFinite(count)) {
+      throw new Error('Visitor counter response was invalid')
+    }
+
+    sessionStorage.setItem(visitorSessionKey, 'true')
+    visitorCount.textContent = formatVisitorCount(count)
+    visitorCounter.setAttribute('aria-label', `${formatVisitorCount(count)} portfolio visitors`)
+    visitorCounter.setAttribute('title', `${formatVisitorCount(count)} visitors`)
+  } catch (error) {
+    visitorCount.textContent = '--'
+    visitorCounter.setAttribute('aria-label', 'Visitor count unavailable')
+    visitorCounter.setAttribute('title', 'Visitor count unavailable')
+  }
+}
+
+loadVisitorCount()
+
 /*=============== ADD BLUR TO HEADER ===============*/
 const blurHeader = () => {
   const header = document.getElementById('header')

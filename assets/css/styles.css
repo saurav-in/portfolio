@@ -192,6 +192,31 @@ button {
   column-gap: .75rem;
 }
 
+.visitor-counter {
+  min-width: 4.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: .35rem;
+  padding-inline: .65rem;
+  border-radius: 999px;
+  background-color: var(--surface-color);
+  color: var(--title-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 22px var(--shadow-color);
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  line-height: 1;
+  cursor: default;
+  transition: background-color .4s, border-color .4s, box-shadow .4s;
+}
+
+.visitor-counter i {
+  color: var(--first-color);
+  font-size: 1rem;
+}
+
 .theme-toggle {
   position: relative;
   width: 3.25rem;
@@ -793,6 +818,19 @@ button {
 @media screen and (max-width: 575px) {
   .nav__actions {
     column-gap: .5rem;
+  }
+
+  .visitor-counter {
+    min-width: 3.75rem;
+    height: 2.5rem;
+    padding-inline: .55rem;
+    border-radius: .75rem;
+    background-color: var(--container-color);
+    border-color: var(--first-color);
+  }
+
+  .visitor-counter i {
+    font-size: 1.25rem;
   }
 
   .theme-toggle {
